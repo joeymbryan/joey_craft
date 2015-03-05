@@ -1,0 +1,171 @@
+// Modified from: ----------------------------------------------- //
+// http://github.com/elyseholladay/foldy960 --------------------- //
+// -------------------------------------------------------------- //
+
+// -------------------------------------------------------------- //
+// Responsive Resets -------------------------------------------- //
+// -------------------------------------------------------------- //
+
+@-o-viewport {
+  width: device-width;
+}
+
+
+@-ms-viewport {
+  width: device-width;
+}
+
+
+@viewport {
+  width: device-width;
+}
+
+
+html {
+  overflow-y: auto;
+}
+
+img,
+audio,
+video,
+canvas {
+  max-width: 100%;
+}
+
+// -------------------------------------------------------------- //
+// Grid > 6 Column Mobile First
+// -------------------------------------------------------------- //
+
+.container {
+  @include clearfix;
+  max-width: 1140px;
+  width: 92%;
+  margin: 0 auto;
+  position: relative;
+
+  &.tight {
+    max-width: 720px;
+  }
+
+  .row {
+    float: left;
+    width: 100%;
+  }
+
+  @include min-width(480) {
+    width: 98%;
+  }
+}
+
+.grid-1,
+.grid-25p, // 25%
+.grid-2,
+.grid-3,
+.grid-4,
+.grid-75p, // 75%
+.grid-5,
+.grid-6,
+.grid-half,
+.grid-full,
+.grid-unit {
+  float: left;
+  width: 100%;
+  padding: 0 1.51515%;
+
+  &.no-padding {
+    padding: 0;
+  }
+}
+.gallery .grid-unit,
+.grid-half {
+  width: 50%;
+  padding: 0 1.51515%;
+}
+.grid-flow-opposite {
+  float: right;
+}
+
+.in-container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.in-75p {
+  width: 100%;
+  max-width: 100%;
+}
+
+.in-25p {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .grid-1 {
+    width: 16.66666%;
+  }
+  .grid-25p {
+    width: 25%;
+  }
+  .grid-2 {
+    width: 33.33333%;
+  }
+  .grid-3,
+  .grid-half {
+    width: 50%;
+  }
+  .grid-4 {
+    width: 66.66666%;
+  }
+  .grid-75p {
+    width: 75%;
+  }
+  .grid-5 {
+    width: 83.33333%;
+  }
+  .grid-6,
+  .grid-full {
+    width: 100%;
+  }
+  .gallery .grid-unit {
+    width: 33.33333%;
+  }
+
+  .in-container {
+    width: 100%;
+    max-width: 535.47px;
+  }
+
+  .in-75p {
+    width: 100%;
+    max-width: 855px;
+  }
+
+  .in-25p {
+    width: 100%;
+    max-width: 285px;
+  }
+}
+
+// -------------------------------------------------------------- //
+// Helpers ------------------------------------------------------ //
+// -------------------------------------------------------------- //
+// Use (or don't) as necessary.
+.content-pad-right {
+  padding-right: 4%;
+}
+
+.content-pad-left {
+  padding-left: 4%;
+}
+
+.show-grid div[class*='grid-'] {
+  background-color: #eeeeee;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  text-align: center;
+}

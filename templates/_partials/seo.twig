@@ -1,0 +1,86 @@
+{% if entry is defined %}
+
+    {# META TITLE #}
+    {% if title is defined %} {# If set in template #}
+        {% set metaTitle = title ~ ' | ' ~ siteName %}
+    {% elseif entry.metaTitle | length %} {# If entry's Meta Title is present #}
+        {% set metaTitle =  entry.metaTitle ~ ' | ' ~ siteName %}
+    {% else %} {# Use global default #}
+        {% set metaTitle = siteName ~ ' | ' ~ seo.metaTitle %}
+    {% endif %}
+
+    {# META DESCRIPTION #}
+    {% if description is defined %} {# If set in template #}
+        {% set metaDescription = description %}
+    {% elseif entry.metaDescription | length %} {# If entry's Meta Description is present #}
+        {% set metaDescription = entry.metaDescription %}
+    {% else %} {# Use global default #}
+        {% set metaDescription = seo.metaDescription %}
+    {% endif %}
+
+    {# META IMAGE #}
+    {% if featuredImage is defined %} {# If set in template #}
+        {% set metaImage = featuredImage %}
+    {% elseif entry.metaImage | length %}
+        {% set metaImage = entry.metaImage.first().url %}
+    {% else %} {# Use global default #}
+        {% set metaImage = seo.metaImage.first().url %}
+    {% endif %}
+
+{% else %} {# If entry isn't defined #}
+
+    {# META TITLE #}
+    {% if title is defined %} {# If set in template #}
+        {% set metaTitle = siteName ~ ' | ' ~ title %}
+    {% else %} {# Use global default #}
+        {% set metaTitle = siteName ~ ' | ' ~ seo.metaTitle %}
+    {% endif %}
+
+    {# META DESCRIPTION #}
+    {% if description is defined %} {# If set in template #}
+        {% set metaDescription = description %}
+    {% else %} {# Use global default #}
+        {% set metaDescription = seo.metaDescription %}
+    {% endif %}
+
+
+    {# META IMAGE #}
+    {% if featuredImage is defined %} {# If set in template #}
+        {% set metaImage = featuredImage %}
+    {% else %} {# Use global default #}
+        {% set metaImage = seo.metaImage.first().url %}
+    {% endif %}
+
+{% endif %}
+
+{# SEO #}
+
+<title>{{ metaTitle }}</title>
+<meta name="author" content="{{ siteName }}">
+<meta name="description" content="{{ metaDescription }}">
+<link rel="canonical" href="{{ craft.request.getUrl() }}">
+<link rel="home" href="{{ siteUrl }}" />
+
+{# Social: Twitter #}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@{{ seo.twitterUsername }}">
+<meta name="twitter:creator" content="{{ seo.twitterUsername }}">
+<meta name="twitter:title" content="{{ metaTitle }}">
+<meta name="twitter:description" content="{{ metaDescription }}">
+<meta name="twitter:image:src" content="{{ metaImage }}">
+
+{# Social: Facebook / Open Graph #}
+
+<meta property="og:url" content="{{ craft.request.getUrl() }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ metaTitle }}">
+<meta property="og:image" content="{{ metaImage }}"/>
+<meta property="og:description" content="{{ metaDescription }}">
+<meta property="og:site_name" content="{{ siteName }}">
+
+{# Social: Google+ / Schema.org  #}
+
+<meta itemprop="name" content="{{ siteName }}">
+<meta itemprop="description" content="{{ metaDescription }}">
+<meta itemprop="image" content="{{ metaImage }}">

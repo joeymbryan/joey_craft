@@ -1,0 +1,27 @@
+{
+  "name": "cosmic-starter",
+  "author": "designbycosmic",
+  "description": "Design by Cosmic.",
+  "version": "0.0.1",
+  "homepage": "http://designbycosmic.com",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:designbycosmic/craft-starter-gulp.git"
+  },
+  "private": true,
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-cache": "*",
+    "gulp-concat-util": "*",
+    "gulp-livereload": "*",
+    "gulp-minify-css": "*",
+    "gulp-notify": "*",
+    "gulp-plumber": "^0.6.6",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-size": "^1.1.0",
+    "gulp-uglify": "*",
+    "gulp-util": "*"
+  }
+}

@@ -1,0 +1,23 @@
+# CRAFT CORE
+# It's probably safe to ignore the craft core.
+# ------------------------------------------------------------
+core
+
+
+# MISC FILES
+# ------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-workspace
+*.sublime-project
+_notes
+dwsync.xml
+logs/*
+.sass-cache
+node_modules
