@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>{{ title }}</title>
+  {% include 'includes/css' %}
+</head>
+
+<body>
+  {% include 'partials/header' %}
+
+<div class="content-wrapper">
+    <div class="content">
+    {% block content %}
+      <p>no content.</p>
+    {% endblock %}
+  </div>
+</div>
+
+  {% include 'partials/footer' %}
+</body>
+</html>
